@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cod: MyString
+  from: 2019-08-19
+  to: 2019-08-19
+
+two:
+  cod: MyString
+  from: 2019-08-19
+  to: 2019-08-19
