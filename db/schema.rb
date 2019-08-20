@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_19_230220) do
+ActiveRecord::Schema.define(version: 2019_08_20_010344) do
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_contacts_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_contacts_on_reset_password_token", unique: true
+  end
 
   create_table "departments", force: :cascade do |t|
     t.string "name"
@@ -27,6 +39,29 @@ ActiveRecord::Schema.define(version: 2019_08_19_230220) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "postulations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "program_id"
+    t.integer "contact_id"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contact_id"], name: "index_postulations_on_contact_id"
+    t.index ["program_id"], name: "index_postulations_on_program_id"
+    t.index ["user_id"], name: "index_postulations_on_user_id"
+  end
+
+  create_table "program_assignments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "program_id"
+    t.integer "status"
+    t.integer "assign_value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["program_id"], name: "index_program_assignments_on_program_id"
+    t.index ["user_id"], name: "index_program_assignments_on_user_id"
+  end
+
   create_table "programs", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -34,6 +69,15 @@ ActiveRecord::Schema.define(version: 2019_08_19_230220) do
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer "postulation_id"
+    t.string "body"
+    t.date "question_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["postulation_id"], name: "index_questions_on_postulation_id"
   end
 
   create_table "users", force: :cascade do |t|
