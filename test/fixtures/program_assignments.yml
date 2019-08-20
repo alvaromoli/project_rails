@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  program: one
+  status: 1
+  assign_value: 1
+
+two:
+  user: two
+  program: two
+  status: 1
+  assign_value: 1
