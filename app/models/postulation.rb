@@ -17,4 +17,5 @@ class Postulation < ApplicationRecord
     :abdicated
   ]
   has_many :questions
+  has_many :contacts, through: :questions
 end

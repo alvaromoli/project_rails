@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'programs/index'
   devise_for :contacts, controllers: {
        sessions: 'contacts/registrations'
   }
