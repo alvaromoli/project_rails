@@ -4,4 +4,8 @@ class Program < ApplicationRecord
 
   has_many :program_assignments
   has_many :users, through: :program_assignments
+  enum status: [
+    :active,
+    :unactive
+  ]
 end

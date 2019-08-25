@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'programs/index'
-  devise_for :contacts, controllers: {
-       sessions: 'contacts/registrations'
-  }
+  resources :programs, only: [:index, :show, :search]
+  resources :contacts, only: [:create]
 
   root to: 'programs#index'
 
