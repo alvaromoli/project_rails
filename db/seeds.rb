@@ -21,15 +21,15 @@
 
 #Programs
 
-periods = Period.all
+#periods = Period.all
 
-periods.each do |period|
+#periods.each do |period|
   #Cambiar RAND() por función de motor de BD
-  5.times do
-    Program.create(name: Faker::Educator.degree,
-                   description: Faker::Lorem.sentence(word_count: 30),
-                   status: [:active],
-                   period: period,
-                   department: Department.all.sample)
-  end
-end
+#  5.times do
+#    Program.create(name: Faker::Educator.degree,
+#                   description: Faker::Lorem.sentence(word_count: 30),
+#                   status: [:active],
+#                   period: period,
+#                   department: Department.all.sample)
+#  end
+#end
