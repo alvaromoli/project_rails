@@ -29,9 +29,9 @@
           <%= f.email_field :email, class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.fields_for :questions, @question do |question| %>
-            <%= question.label :body %>
-            <%= question.text_area :body, class: "form-control" %>
+          <%= f.fields_for :questions, @question do |q| %>
+            <%= q.label :question %>
+            <%= q.text_area :body, class: "form-control" %>
           <% end %>
         </div>
         <%= f.hidden_field :program, :value => params[:id] %>

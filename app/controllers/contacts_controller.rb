@@ -12,7 +12,6 @@ class ContactsController < ApplicationController
     else
       @contact.password = generated_password
       @contact.save
-      debugger
       assign_new_executive
     end
     save_question
