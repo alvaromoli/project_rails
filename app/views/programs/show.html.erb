@@ -11,22 +11,22 @@
       <%= @program.description %>
     </div>
     <div class="col-md-4">
-      <%= form_for(@contact, :url => contacts_path(@contact)) do |f| %>
+      <%= form_for(@contact, :url => contacts_path(@contact), validate: true) do |f| %>
         <div class="form-group">
           <%= f.label :names %>
-          <%= f.text_field :names, class: "form-control" %>
+          <%= f.text_field :names, class: "form-control", required: true %>
         </div>
         <div class="form-group">
           <%= f.label :lastnames %>
-          <%= f.text_field :lastnames, class: "form-control" %>
+          <%= f.text_field :lastnames, class: "form-control", required: true %>
         </div>
         <div class="form-group">
           <%= f.label :phone %>
-          <%= f.text_field :phone, class: "form-control" %>
+          <%= f.text_field :phone, class: "form-control", required: true %>
         </div>
         <div class="form-group">
           <%= f.label :email %>
-          <%= f.email_field :email, class: "form-control" %>
+          <%= f.email_field :email, class: "form-control", required: true %>
         </div>
         <div class="form-group">
           <%= f.fields_for :questions, @question do |q| %>
