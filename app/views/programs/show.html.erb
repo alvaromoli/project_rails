@@ -11,7 +11,7 @@
       <%= @program.description %>
     </div>
     <div class="col-md-4">
-      <%= form_for(@contact, :url => contacts_path(@contact), validate: true) do |f| %>
+      <%= form_for(@contact, :url => contacts_path(@contact), method: :post, validate: true) do |f| %>
         <div class="form-group">
           <%= f.label :names %>
           <%= f.text_field :names, class: "form-control", required: true %>
@@ -29,12 +29,12 @@
           <%= f.email_field :email, class: "form-control", required: true %>
         </div>
         <div class="form-group">
-          <%= f.fields_for :questions, @question do |q| %>
-            <%= q.label :question %>
-            <%= q.text_area :body, class: "form-control" %>
+          <%= f.fields_for :questions, @postulation.questions.build  do |q| %>
+              <%= q.label :body, "Question" %>
+              <%= q.text_area :body, class: "form-control" %>
           <% end %>
         </div>
-        <%= f.hidden_field :program, :value => params[:id] %>
+        <%= f.hidden_field :program_id, value: params[:id] %>
         <div class="form-group">
           <%= f.submit "Ask for information", class: "btn btn-danger btn-sm btn-block" %>
         </div>

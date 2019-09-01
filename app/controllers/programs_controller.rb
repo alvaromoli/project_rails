@@ -10,8 +10,7 @@ class ProgramsController < ApplicationController
   def show
     @program = Program.find(params[:id])
     @contact = Contact.new
-    postulation = @contact.postulations.build
-    @question = postulation.questions.build
+    @postulation = @contact.postulations.build(program: @program)
   end
 
   private
