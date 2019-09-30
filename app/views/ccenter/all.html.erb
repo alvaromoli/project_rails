@@ -1,0 +1,27 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Names</th>
+      <th>Lastnames</th>
+      <th>Contact date</th>
+      <th>Status</th>
+      <th>Questions</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @contacts.each do |post| %>
+    <tr>
+      <td><%= post.id %></td>
+      <td><%= post.contact.names %></td>
+      <td><%= post.contact.lastnames %></td>
+      <td><%= post.created_at %></td>
+      <td><%= post.status.nil? ? "No Satus" : post.status.capitalize %></td>
+      <% q = post.contact.questions.count %>
+      <td><%= link_to "#{q}", root_path %></td>
+      <td><%= link_to "View", ccenter_contact_path(post.contact.id) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

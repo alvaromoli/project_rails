@@ -1,0 +1,66 @@
+<%= render 'ccenter/navbar' %>
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body">
+          <h3>Leads</h3>
+          <h5><%= @leads.count %></h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body">
+          <h3>Contacts</h3>
+          <h5><%= @contacts.count %></h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body">
+          <h3>Postulations</h3>
+          <h5><%= @postulations.count %></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-5">
+    <div class="col-12">
+      <h5>Leads graphic</h5>
+      <%= line_chart current_user.postulations.group_by_day(:created_at).count %>
+    </div>
+  </div>
+  <div class="row pt-5">
+    <div class="col-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Names</th>
+            <th>Lastnames</th>
+            <th>Contact date</th>
+            <th>Status</th>
+            <th>Questions</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @leads.each do |post| %>
+          <tr>
+            <td><%= post.id %></td>
+            <td><%= post.contact.names %></td>
+            <td><%= post.contact.lastnames %></td>
+            <td><%= post.created_at %></td>
+            <td><%= post.status.nil? ? "No Satus" : post.status.capitalize %></td>
+            <% q = post.contact.questions.count %>
+            <td><%= link_to "#{q}", root_path %></td>
+            <td><%= link_to "View", ccenter_contact_path(post.contact.id) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

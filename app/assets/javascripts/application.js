@@ -16,28 +16,28 @@
 //= require toastr
 //= require activestorage
 //= require turbolinks
+//= require chartkick
+//= require Chart.bundle
 //= require_tree .
 
-$(document).ready(function() {
-    toastr.options = {
-        "closeButton": false,
-        "debug": false,
-        "positionClass": "toast-bottom-right",
-        "onclick": null,
-        "showDuration": "300",
-        "hideDuration": "1000",
-        "timeOut": "5000",
-        "extendedTimeOut": "1000",
-        "showEasing": "swing",
-        "hideEasing": "linear",
-        "showMethod": "fadeIn",
-        "hideMethod": "fadeOut",
-        "iconClass": "toast-info",
-        "iconClasses": {
-          'error'   : 'toast-error',
-          'info'    : 'toast-info',
-          'success' : 'toast-success',
-          'warning' : 'toast-warning',
-        }
-    }
-});
+toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "positionClass": "toast-bottom-right",
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut",
+  "iconClass": "alert",
+  "iconClasses": {
+    'error'   : 'bg-primary',
+    'info'    : 'bg-info',
+    'success' : 'bg-success',
+    'warning' : 'bg-warning'
+  }
+}

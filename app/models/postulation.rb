@@ -3,8 +3,10 @@ class Postulation < ApplicationRecord
   belongs_to :contact
   enum status: [
     :lead,
+    :contact,
     :declined,
     :interested,
+    :postulated,
     :uninteresed,
     :inadmissible,
     :waiting,

@@ -10,6 +10,10 @@ class PostulationsController < ApplicationController
     debugger
   end
 
+  def statuses
+    
+  end
+
   private
   def program_params
     params.require(:postulation).permit(keys: [:program])

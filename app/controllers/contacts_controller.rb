@@ -19,9 +19,14 @@ class ContactsController < ApplicationController
       end
       question = @post.questions.build(body: @question_body)
       question.save
-      debugger
-      format.html { redirect_to program_path(program_params[:program_id]), flash: {success: 'Contact created successfully'} }
+      #debugger
+      flash[:notice] = "Contact successfully created"
+      format.html { redirect_to program_path(program_params[:program_id]) }
     end
+  end
+
+  def show
+    @contact = Contact.find(params[:id])
   end
 
   protected
