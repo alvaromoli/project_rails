@@ -4,6 +4,7 @@
       <th>#</th>
       <th>Names</th>
       <th>Lastnames</th>
+      <th>Email</th>
       <th>Contact date</th>
       <th>Status</th>
       <th>Questions</th>
@@ -11,11 +12,12 @@
     </tr>
   </thead>
   <tbody>
-    <% @contacts.each do |post| %>
+    <% @all.each do |post| %>
     <tr>
       <td><%= post.id %></td>
       <td><%= post.contact.names %></td>
       <td><%= post.contact.lastnames %></td>
+      <td><%= post.contact.email %></td>
       <td><%= post.created_at %></td>
       <td><%= post.status.nil? ? "No Satus" : post.status.capitalize %></td>
       <% q = post.contact.questions.count %>

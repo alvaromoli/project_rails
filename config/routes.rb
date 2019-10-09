@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get '/ccenter', to: 'ccenter#index'
   get '/ccenter/contacts/:id', to: 'contacts#show', as: 'ccenter_contact'
-  get '/ccenter/postulations/:status', to: 'postulations#statuses'
+  get '/ccenter/postulations/:status', to: 'postulations#statuses', as: 'postulation_statuses'
 
   root to: 'programs#index'
 

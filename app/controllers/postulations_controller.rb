@@ -11,7 +11,15 @@ class PostulationsController < ApplicationController
   end
 
   def statuses
-    
+    case params[:status]
+    when "lead"
+      @leads = current_user.postulations.where(status: :lead)
+      render :lead
+    end
+  end
+
+  def lead
+    @leads = current_user.postulations.where(status: :lead)
   end
 
   private
