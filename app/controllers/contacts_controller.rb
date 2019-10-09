@@ -27,6 +27,8 @@ class ContactsController < ApplicationController
 
   def show
     @contact = Contact.find(params[:id])
+    @last_post = @contact.postulations.last
+    @questions = @last_post.questions
   end
 
   protected

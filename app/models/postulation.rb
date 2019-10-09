@@ -23,6 +23,15 @@ class Postulation < ApplicationRecord
 
   validates_uniqueness_of :program, scope: %i[contact_id]
 
+  def self.status_color(status)
+    case status
+    when 'lead'
+      'badge-primary'
+    when 'contact'
+      'badge-danger'
+    end
+  end
+
   private
 
   def assign_user
