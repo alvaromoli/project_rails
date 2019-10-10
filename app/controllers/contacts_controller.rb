@@ -6,18 +6,18 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.new(sign_up_params.except(:questions_attributes))
-    @program = Program.find(program_params[:program_id])
-    @question_body = params[:contact][:questions_attributes]["0"][:body]
+    contact = Contact.new(sign_up_params.except(:questions_attributes))
+    program = Program.find(program_params[:program_id])
+    question_body = params[:contact][:questions_attributes]["0"][:body]
     respond_to do |format|
-      unless @contact.save
-        @contact = Contact.where(email: sign_up_params[:email]).first
+      unless contact.save
+        contact = Contact.where(email: sign_up_params[:email]).first
       end
-      @post = @contact.postulations.build(program: @program, status: 0)
-      unless @post.save
-        @post = @contact.postulations.where(program: @program).first
+      post = contact.postulations.build(program: program, status: 0)
+      unless post.save
+        post = contact.postulations.where(program: program).first
       end
-      question = @post.questions.build(body: @question_body)
+      question = post.questions.build(body: question_body)
       question.save
       #debugger
       flash[:notice] = "Contact successfully created"

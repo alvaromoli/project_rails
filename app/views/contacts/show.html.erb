@@ -51,7 +51,7 @@
                             </div>
                             <div class="col-md-6">
                                 <h6>Last Post Status</h6>
-                                <span class="badge <%= Postulation.status_color(@last_post.status) %>"><%= @last_post.status %></span>
+                                <span class="badge <%= status_color(@last_post.status) %>"><%= @last_post.status %></span>
                                 <h6>Entry Date</h6>
                                 <p>
                                   <%= @contact.created_at.strftime('%d-%m-%Y') if @contact.created_at %>

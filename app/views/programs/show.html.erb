@@ -14,19 +14,19 @@
     <div class="col-md-4">
       <%= form_for(@contact, :url => contacts_path(@contact), method: :post, validate: true) do |f| %>
         <div class="form-group">
-          <%= f.label :names %>
+          <%= f.label :names, "Name (*)" %>
           <%= f.text_field :names, class: "form-control", required: true %>
         </div>
         <div class="form-group">
-          <%= f.label :lastnames %>
+          <%= f.label :lastnames, "Lastname (*)" %>
           <%= f.text_field :lastnames, class: "form-control", required: true %>
         </div>
         <div class="form-group">
-          <%= f.label :phone %>
+          <%= f.label :phone, "Phone (*)" %>
           <%= f.text_field :phone, class: "form-control", required: true %>
         </div>
         <div class="form-group">
-          <%= f.label :email %>
+          <%= f.label :email, "Email (*)" %>
           <%= f.email_field :email, class: "form-control", required: true %>
         </div>
         <div class="form-group">
@@ -37,6 +37,7 @@
         </div>
         <%= f.hidden_field :program_id, value: params[:id] %>
         <div class="form-group">
+          <small>(*) Required</small>
           <%= f.submit "Ask for information", class: "btn btn-danger btn-sm btn-block" %>
         </div>
       <% end %>
